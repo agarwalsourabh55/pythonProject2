@@ -1,0 +1,21 @@
+name: kedro-action
+author: Sourabh Agarwal
+description: Run kedro project
+inputs:
+  python_version:
+    description: a Python version that is supported by pyenv
+    default: '3.7.6'
+  should_run:
+    description: runs `kedro run`
+    default: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.python_version }}
+    - ${{ inputs.should_run }}
+  
+branding:
+  icon: 'git-branch'
+  color: 'black'
